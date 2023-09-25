@@ -1,1 +1,72 @@
-<p>create-registration works!</p>
+<div class="logo text-center">
+  <img alt="" src="assets/11c4c9ef77d6951d5ca1fb69da0ce758-removebg-preview.png" width="100">
+</div>
+
+<div class="registration-form m-3 p-4">
+  <form>
+
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email">
+          <mat-icon matSuffix><i aria-hidden="true" class="fa fa-envelope-o"></i></mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Mobile</mat-label>
+          <input matInput placeholder="Mobile">
+          <mat-icon matSuffix>call</mat-icon>
+          <mat-hint></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Weight</mat-label>
+          <input matInput placeholder="weight" type="number">
+          <mat-icon matSuffix>line_weight</mat-icon>
+          <mat-hint>unit by KGs</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Height</mat-label>
+          <input matInput placeholder="height" type="number">
+          <mat-icon matSuffix><i aria-hidden="true" class="fa fa-text-height"></i></mat-icon>
+          <mat-hint>unit by meters</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <label id="example-radio-group-label">Do you require trainer ?</label>
+        <mat-radio-group
+          class="example-radio-group">
+          <mat-radio-button class="example-radio-button" *ngFor="let trainerOpt of ['Yes','No']" [value]="trainerOpt">
+            {{trainerOpt}}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>Selected option is: </div>
+
+      </div>
+
+    </div>
+
+  </form>
+</div>
