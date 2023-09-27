@@ -1,0 +1,99 @@
+{
+  "enquiry": [
+    {
+      "firstName": "Maneesha",
+      "lastName": "Gunawardhana",
+      "email": "maneesha@gmail.com",
+      "mobile": "0719043372",
+      "weight": 55,
+      "height": 2,
+      "bmi": 22,
+      "bmiResult": "Very severely obese",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "Building lean Muscle"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "0123-01-27T18:40:36.000Z",
+      "id": 1
+    },
+    {
+      "firstName": "Sasmitha",
+      "lastName": "Gunawardhana",
+      "email": "sasmitha@gmail.com",
+      "mobile": "0719563372",
+      "weight": 55,
+      "height": 2,
+      "bmi": 23,
+      "bmiResult": "obese",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "Building lean Muscle"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "0123-01-27T18:40:36.000Z",
+      "id": 2
+    },
+    {
+      "firstName": "Asoka",
+      "lastName": "Gunawardhana",
+      "email": "asoka@gmail.com",
+      "mobile": "0719643372",
+      "weight": 55,
+      "height": 2,
+      "bmi": 22,
+      "bmiResult": "Best",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "Building lean Muscle"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "0123-01-27T18:40:36.000Z",
+      "id": 3
+    },
+    {
+      "firstName": "Dinusha",
+      "lastName": "Gunawardhana",
+      "email": "maneesha@gmail.com",
+      "mobile": "0719043372",
+      "weight": 55,
+      "height": 2,
+      "bmi": 22,
+      "bmiResult": "Very severely obese",
+      "gender": "Female",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "Building lean Muscle"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "0123-01-27T18:40:36.000Z",
+      "id": 4
+    },
+    {
+      "firstName": "Sample",
+      "lastName": "Gunawardhana",
+      "email": "sample@gmail.com",
+      "mobile": "0719043992",
+      "weight": 55,
+      "height": 2,
+      "bmi": 22,
+      "bmiResult": "Very severely obese",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "Building lean Muscle"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "0123-01-27T18:40:36.000Z",
+      "id": 5
+    }
+  ]
+}
