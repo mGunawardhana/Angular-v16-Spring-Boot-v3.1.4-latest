@@ -1,7 +1,7 @@
 {
   "enquiry": [
     {
-      "firstName": "Maneesha",
+      "firstName": "M",
       "lastName": "Gunawardhana",
       "email": "maneesha@gmail.com",
       "mobile": "0719043372",
@@ -20,7 +20,7 @@
       "id": 1
     },
     {
-      "firstName": "Sasmitha",
+      "firstName": "Sas",
       "lastName": "Gunawardhana",
       "email": "sasmitha@gmail.com",
       "mobile": "0719563372",
@@ -58,15 +58,15 @@
       "id": 3
     },
     {
-      "firstName": "Dinusha",
+      "firstName": "SSSSS",
       "lastName": "Gunawardhana",
-      "email": "maneesha@gmail.com",
-      "mobile": "0719043372",
+      "email": "sasmitha@gmail.com",
+      "mobile": "0719563372",
       "weight": 55,
       "height": 2,
-      "bmi": 22,
-      "bmiResult": "Very severely obese",
-      "gender": "Female",
+      "bmi": 23,
+      "bmiResult": "obese",
+      "gender": "Male",
       "requireTrainer": "Yes",
       "package": "Quarterly",
       "important": [
@@ -77,23 +77,55 @@
       "id": 4
     },
     {
-      "firstName": "Sample",
-      "lastName": "Gunawardhana",
-      "email": "sample@gmail.com",
-      "mobile": "0719043992",
-      "weight": 55,
-      "height": 2,
-      "bmi": 22,
-      "bmiResult": "Very severely obese",
-      "gender": "Male",
-      "requireTrainer": "Yes",
-      "package": "Quarterly",
-      "important": [
-        "Building lean Muscle"
-      ],
-      "haveGymBefore": "Yes",
-      "enquiryDate": "0123-01-27T18:40:36.000Z",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "mobile": "",
+      "weight": "",
+      "height": "",
+      "bmi": "",
+      "bmiResult": "",
+      "gender": "",
+      "requireTrainer": "",
+      "package": "",
+      "important": "",
+      "haveGymBefore": "",
+      "enquiryDate": "",
       "id": 5
+    },
+    {
+      "firstName": null,
+      "lastName": null,
+      "email": null,
+      "mobile": null,
+      "weight": null,
+      "height": null,
+      "bmi": null,
+      "bmiResult": null,
+      "gender": null,
+      "requireTrainer": null,
+      "package": null,
+      "important": null,
+      "haveGymBefore": null,
+      "enquiryDate": null,
+      "id": 6
+    },
+    {
+      "firstName": null,
+      "lastName": null,
+      "email": null,
+      "mobile": null,
+      "weight": null,
+      "height": null,
+      "bmi": null,
+      "bmiResult": null,
+      "gender": null,
+      "requireTrainer": null,
+      "package": null,
+      "important": null,
+      "haveGymBefore": null,
+      "enquiryDate": null,
+      "id": 7
     }
   ]
 }

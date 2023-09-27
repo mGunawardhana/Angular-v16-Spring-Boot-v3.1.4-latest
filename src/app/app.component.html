@@ -3,15 +3,13 @@
   <h1>Angular [CRUD]</h1>
   <span class="example-spacer"></span>
 
-  <button routerLink="/list" color="warn" mat-raised-button>
-    View Inquiries
+  <button color="warn" mat-raised-button routerLink="/list">
+    Get All
   </button>
 </mat-toolbar>
 
 <div class="container mt-4">
-  <router-outlet>
-
-  </router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
 <ng-toast></ng-toast>

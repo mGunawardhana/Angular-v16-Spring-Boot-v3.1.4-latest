@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ApiService} from "../service/api.service";
 import {NgToastService} from "ng-angular-popup";
+import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../models/user.model";
 
 @Component({
   selector: 'app-create-registration',
@@ -14,8 +16,12 @@ export class CreateRegistrationComponent implements OnInit {
   public importantList: string[] = ['Toxic Fat reduction', 'Energy and Endurance', 'Building lean Muscle', 'Heal-their Digestive System', 'Sugar Craving Body', 'Fitness',];
 
   public registerForm!: FormGroup;
+  public userIdToUpdate!: number;
+  public isUpdateActive:boolean = false;
 
-  constructor(private fb: FormBuilder, private api: ApiService, private toastService: NgToastService) {
+  constructor(private fb: FormBuilder, private api: ApiService,
+              private router:Router,
+              private toastService: NgToastService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -38,6 +44,13 @@ export class CreateRegistrationComponent implements OnInit {
     this.registerForm.controls['height'].valueChanges.subscribe(res => {
       this.calculateBmi(res);
     });
+    this.activatedRoute.params.subscribe(value => {
+      this.userIdToUpdate = value['id'];
+      this.api.getRegisteredUserById(this.userIdToUpdate).subscribe(res => {
+        this.isUpdateActive = true;
+        this.fillFormToUpdate(res);
+      })
+    })
   }
 
   clickedSubmitBtn() {
@@ -49,14 +62,15 @@ export class CreateRegistrationComponent implements OnInit {
     })
   }
 
-  edit(id: number) {
-
+  update(){
+    this.api.updateRegisteredUser(this.registerForm.value,this.userIdToUpdate).subscribe(res => {
+      this.toastService.success({
+        detail: "SUCCESS!", summary: "user updates successfully!", duration: 3000,
+      });
+      this.registerForm.reset();
+      this.router.navigate(['list']);
+    })
   }
-
-  deleteUser(id: number) {
-
-  }
-
 
   calculateBmi(value: number) {
     const weight = this.registerForm.value.weight;
@@ -77,6 +91,25 @@ export class CreateRegistrationComponent implements OnInit {
         this.registerForm.controls['bmiResult'].patchValue("Obese");
         break;
     }
+  }
+
+  fillFormToUpdate(user: User) {
+    this.registerForm.setValue({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      mobile: user.mobile,
+      weight: user.weight,
+      height: user.height,
+      bmi: user.bmi,
+      bmiResult: user.bmiResult,
+      gender: user.gender,
+      requireTrainer: user.requireTrainer,
+      package: user.package,
+      important: user.important,
+      haveGymBefore: user.haveGymBefore,
+      enquiryDate: user.enquiryDate
+    })
   }
 
 }

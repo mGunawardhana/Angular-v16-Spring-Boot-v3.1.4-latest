@@ -20,16 +20,16 @@ export class ApiService {
   getRegisteredUser(){
     return this.http.get<User[]>(`${this.baseURL}`)
   }
-  //
-  // updateRegisteredUser(registerObj:User,id:number){
-  //   return this.http.put<User>(`${this.baseURL}/${id}`,registerdObj)
-  // }
-  //
-  // deleteRegisteredUser(id:number){
-  //   return this.http.delete<User>(`${this.baseURL}/${id}`)
-  // }
-  //
-  // getRegisteredUserById(id:number){
-  //   return this.http.get<User>(`${this.baseURL}/${id}`)
-  // }
+
+  updateRegisteredUser(registerObj:User,id:number){
+    return this.http.put<User>(`${this.baseURL}/${id}`,registerObj)
+  }
+
+  deleteRegisteredUser(id:number){
+    return this.http.delete<User>(`${this.baseURL}/${id}`)
+  }
+
+  getRegisteredUserById(id:number){
+    return this.http.get<User>(`${this.baseURL}/${id}`)
+  }
 }
