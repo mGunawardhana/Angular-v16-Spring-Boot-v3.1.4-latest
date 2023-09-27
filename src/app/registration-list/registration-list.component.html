@@ -64,7 +64,7 @@
                                                                                                 aria-hidden="true"></i></button>
         <button mat-icon-button (click)="edit(row.id)" class="mx-0" color="accent"><i class="fa fa-pencil"
                                                                                       aria-hidden="true"></i></button>
-        <button  mat-icon-button color="primary"><i class="fa fa-trash"
+        <button (click)="deleteUser(row.id)"  mat-icon-button color="primary"><i class="fa fa-trash"
                                                                                 aria-hidden="true"></i></button>
       </td>
     </ng-container>
