@@ -87,6 +87,21 @@
         </mat-form-field>
       </div>
       <div class="col-md-4 mt-2">
+        <mat-form-field appearance="outline">
+          <mat-label>BMI Result</mat-label>
+          <input
+            formControlName="bmiResult"
+            matInput
+            placeholder="BMI Result"
+            readonly
+          />
+          <mat-icon matSuffix
+          ><i aria-hidden="true" class="fa fa-check"></i
+          ></mat-icon>
+          <mat-hint>unit by meters</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4 mt-2">
         <mat-form-field>
           <mat-label>Enquiry date</mat-label>
           <input [matDatepicker]="picker" formControlName="enquiryDate" matInput/>
@@ -96,23 +111,6 @@
             matIconSuffix
           ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-
-      <div class="col-md-4 mt-2">
-        <mat-form-field appearance="outline">
-          <mat-label>BMI Result</mat-label>
-          <input
-            formControlName="bmiResult"
-            matInput
-            placeholder="BMI Result"
-            readonly
-            type="number"
-          />
-          <mat-icon matSuffix
-          ><i aria-hidden="true" class="fa fa-check"></i
-          ></mat-icon>
-          <mat-hint>unit by meters</mat-hint>
         </mat-form-field>
       </div>
 
@@ -165,9 +163,9 @@
       <div class="col-md-4 mt-4">
         <mat-form-field appearance="outline">
           <mat-label>Select Package</mat-label>
-          <mat-select formControlName="package">
-            <mat-option *ngFor="let package of packages" [value]="package">
-              {{ package }}
+          <mat-select formControlName="packageName">
+            <mat-option *ngFor="let packageName of packages" [value]="packageName">
+              {{ packageName }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -175,7 +173,8 @@
       <div class="col-md-4 mt-4">
         <mat-form-field appearance="outline">
           <mat-label>Which of the following is important to you ?</mat-label>
-          <mat-select formControlName="important" multiple>
+          <!--          <mat-select formControlName="important" multiple>-->
+          <mat-select formControlName="important">
             <mat-option
               *ngFor="let important of importantList"
               [value]="important"
@@ -187,7 +186,9 @@
       </div>
 
     </div>
-    <button *ngIf="!isUpdateActive" (click)="clickedSubmitBtn()" class="mx-4 mb-4" mat-raised-button color="accent">Submit</button>
-    <button *ngIf="isUpdateActive" (click)="update()" class="mx-4 mb-4" mat-raised-button color="accent">Update</button>
+    <button (click)="clickedSubmitBtn()" *ngIf="!isUpdateActive" class="mx-4 mb-4" color="accent" mat-raised-button>
+      Submit
+    </button>
+    <button (click)="update()" *ngIf="isUpdateActive" class="mx-4 mb-4" color="accent" mat-raised-button>Update</button>
   </form>
 </div>

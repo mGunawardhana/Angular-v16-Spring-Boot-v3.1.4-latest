@@ -17,15 +17,14 @@ export class CreateRegistrationComponent implements OnInit {
 
   public registerForm!: FormGroup;
   public userIdToUpdate!: number;
-  public isUpdateActive:boolean = false;
+  public isUpdateActive: boolean = false;
 
-  constructor(private fb: FormBuilder, private api: ApiService,
-              private router:Router,
-              private toastService: NgToastService, private activatedRoute: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private api: ApiService, private router: Router, private toastService: NgToastService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
+      id: [''],
       firstName: [''],
       lastName: [''],
       email: [''],
@@ -36,7 +35,7 @@ export class CreateRegistrationComponent implements OnInit {
       bmiResult: [''],
       gender: [''],
       requireTrainer: [''],
-      package: [''],
+      packageName: [''],
       important: [''],
       haveGymBefore: [''],
       enquiryDate: [''],
@@ -62,13 +61,15 @@ export class CreateRegistrationComponent implements OnInit {
     })
   }
 
-  update(){
-    this.api.updateRegisteredUser(this.registerForm.value,this.userIdToUpdate).subscribe(res => {
+  update() {
+    this.api.updateRegisteredUser(this.registerForm.value).subscribe(res => {
       this.toastService.success({
         detail: "SUCCESS!", summary: "user updates successfully!", duration: 3000,
       });
       this.registerForm.reset();
-      this.router.navigate(['list']);
+      this.router.navigate(['list']).then(r => {
+        console.log("Navigate Success!")
+      });
     })
   }
 
@@ -76,6 +77,7 @@ export class CreateRegistrationComponent implements OnInit {
     const weight = this.registerForm.value.weight;
     const height = value;
     const bmi = weight / (height * height);
+    let bmiResult = "";
     this.registerForm.controls['bmi'].patchValue(bmi);
     switch (true) {
       case bmi < 18.5:
@@ -95,6 +97,7 @@ export class CreateRegistrationComponent implements OnInit {
 
   fillFormToUpdate(user: User) {
     this.registerForm.setValue({
+      id: user.id,
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
@@ -105,7 +108,7 @@ export class CreateRegistrationComponent implements OnInit {
       bmiResult: user.bmiResult,
       gender: user.gender,
       requireTrainer: user.requireTrainer,
-      package: user.package,
+      packageName: user.packageName,
       important: user.important,
       haveGymBefore: user.haveGymBefore,
       enquiryDate: user.enquiryDate

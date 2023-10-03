@@ -1,6 +1,6 @@
 <mat-card class="example-card text-center mt-5">
   <mat-card-header class="justify-content-center">
-    <div mat-card-avatar class="example-header-image"></div>
+    <div class="example-header-image" mat-card-avatar></div>
     <mat-card-title>{{userDetails.firstName}} {{userDetails.lastName}}</mat-card-title>
     <mat-card-subtitle>{{userDetails.email}}</mat-card-subtitle>
   </mat-card-header>
@@ -23,7 +23,7 @@
       <mat-list-item>
         <div matLine>
           Package :
-          <button mat-button>{{userDetails.package}}</button>
+          <button mat-button>{{userDetails.packageName}}</button>
         </div>
       </mat-list-item>
       <mat-list-item>
@@ -46,13 +46,8 @@
       </mat-list-item>
       <mat-list-item>
         <div matLine>
-          Goals :
-          <button mat-button><mat-chip-listbox>
-            <ng-container *ngFor="let row of userDetails.important">
-              <mat-chip-option selected>{{row}}</mat-chip-option>
-            </ng-container>
-          </mat-chip-listbox></button>
-
+          Important :
+          <button mat-button>{{userDetails.important}}</button>
         </div>
       </mat-list-item>
     </mat-list>

@@ -5,14 +5,14 @@
 @include mat.core();
 
 $my-primary: mat.define-palette(mat.$red-palette, 600);
-$my-blue-gray: mat.define-palette(mat.$blue-grey-palette, 900);
+$blue-grey-palette: mat.define-palette(mat.$blue-grey-palette, 900);
 $my-warn: mat.define-palette(mat.$green-palette, A700);
 
 $my-theme: mat.define-light-theme(
     (
       color:(
         primary:$my-primary,
-        accent:$my-blue-gray,
+        accent:$blue-grey-palette,
         warn:$my-warn,
       ),
       typography: mat.define-typography-config(),

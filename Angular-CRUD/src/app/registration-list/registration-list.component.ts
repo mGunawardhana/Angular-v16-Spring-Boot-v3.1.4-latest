@@ -7,6 +7,7 @@ import {ApiService} from "../service/api.service";
 import {Router} from "@angular/router";
 import {NgConfirmService} from "ng-confirm-box";
 import {NgToastService} from "ng-angular-popup";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-registration-list',
@@ -14,30 +15,30 @@ import {NgToastService} from "ng-angular-popup";
   styleUrls: ['./registration-list.component.scss']
 })
 export class RegistrationListComponent implements OnInit {
-  public users!: User[];
-  dataSource!: MatTableDataSource<User>;
+
+  public getJsonValue: any;
+  public dataSource: any = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'mobile', 'bmiResult', 'gender', 'package', 'enquiryDate', 'action'];
+  public displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'mobile', 'bmiResult', 'gender', 'package', 'enquiryDate', 'action'];
 
-  constructor(private api: ApiService,private router:Router,
-              private confirm:NgConfirmService,private toastService: NgToastService) {
+  constructor(private api: ApiService, private router: Router, private confirm: NgConfirmService, private toastService: NgToastService, private http: HttpClient) {
   }
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getMethod();
   }
 
-  getUsers() {
-    this.api.getRegisteredUser().subscribe(res => {
-      this.users = res;
-      this.dataSource = new MatTableDataSource(this.users);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      console.log(res)
+  public getMethod() {
+    this.api.getRegisteredUser().subscribe((data) => {
+      console.table(data);
+      this.getJsonValue = data;
+      this.dataSource = data;
+      console.log(this.getJsonValue)
     })
   }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -53,21 +54,18 @@ export class RegistrationListComponent implements OnInit {
   }
 
   deleteUser(id: number) {
-    this.confirm.showConfirm("Are you sure want to Delete?",
-      () => {
-        this.api.deleteRegisteredUser(id)
-          .subscribe({
-            next: (res) => {
-              this.toastService.success({ detail: 'SUCCESS', summary: 'Deleted Successfully', duration: 3000 });
-              this.getUsers();
-            },
-            error: (err) => {
-              this.toastService.error({ detail: 'ERROR', summary: 'Something went wrong!', duration: 3000 });
-            }
-          })
-      },
-      () => {
-      })
+    this.confirm.showConfirm("Are you sure want to Delete?", () => {
+      this.api.deleteRegisteredUser(id)
+        .subscribe({
+          next: (res) => {
+            this.toastService.success({detail: 'SUCCESS', summary: 'Deleted Successfully', duration: 3000});
+            this.getMethod();
+          }, error: (err) => {
+            this.toastService.error({detail: 'ERROR', summary: 'Something went wrong!', duration: 3000});
+          }
+        })
+    }, () => {
+    })
 
   }
 }
