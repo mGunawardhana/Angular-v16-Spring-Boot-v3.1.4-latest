@@ -40,7 +40,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [mGunawardhana/Angular-v16-Spring-Boot-v3.1.4-latest](https://github.com/mGunawardhana/Angular-v16-Spring-Boot-v3.1.4-latest)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|36<br/>Tools used|02/17/24 <br/>Report generated|
+|36<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
